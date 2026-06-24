@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-stone-950 text-stone-100 antialiased selection:bg-emerald-600 selection:text-white;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+/* Custom Scrollbar styled for Coffee & Green Leaf theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-stone-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-stone-800 rounded-full hover:bg-emerald-600 transition-colors duration-300;
+}
+
+/* Premium Coffee & Green Leaf Glassmorphism Styles */
+.glass-panel {
+  background: rgba(28, 25, 23, 0.75); /* Dark coffee/stone tint */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(16, 185, 129, 0.08); /* Emerald glow border */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-card {
+  background: rgba(41, 37, 36, 0.4); /* Espresso tint */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(41, 37, 36, 0.6);
+  border-color: rgba(16, 185, 129, 0.2); /* Soft emerald hover border */
+  box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.12), 0 4px 20px -5px rgba(16, 185, 129, 0.08); /* Caramel & Emerald double glow */
+  transform: translateY(-3px);
+}
+
+/* Custom hide-scrollbar class */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
