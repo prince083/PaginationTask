@@ -37,7 +37,11 @@ export const query = (text: string, params?: any[]) => {
 
 export async function initDb() {
   try {
-    const schemaPath = path.join(__dirname, 'schema.sql');
+    let schemaPath = path.join(__dirname, 'schema.sql');
+    if (!fs.existsSync(schemaPath)) {
+      // If running from the compiled dist folder, fallback to the src folder
+      schemaPath = path.join(__dirname, '../../src/db/schema.sql');
+    }
     const schemaSql = fs.readFileSync(schemaPath, 'utf8');
     console.log('Initializing database schema...');
     await query(schemaSql);
